@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>Title: <span th:text="${post.getTitle()}"></span></h1>
+<p>Paragraph: <span th:text="${post.getBody()}"></span></p>
+<p>Created By: <span th:text="${post.getUser().getEmail()}"></span></p>
+
+</body>
+</html>

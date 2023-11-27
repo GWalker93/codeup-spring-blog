@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Roll Dice</title>
+</head>
+<body>
+
+<div>
+    <h1>Guess which side the dice will land on.</h1>
+    <div th:each="guess : ${listOfGuesses}">
+        <p th:text="${dice}"></p>
+    </div>
+</div>
+
+</body>
+</html>
