@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
 
+<nav th:replace="partials/navbar :: navbar"></nav>
+
 <h1>Title: <span th:text="${post.getTitle()}"></span></h1>
 <p>Paragraph: <span th:text="${post.getBody()}"></span></p>
-<p>Created By: <span th:text="${post.getUser().getEmail()}"></span></p>
+<!--<p>Created By: <span th:text="${post.getUser().getEmail()}"></span></p>-->
+
+<div sec:authorize="isAuthenticated()">
+    This content is only shown to authenticated users.
+
+    User ID: <span th:text="${#authentication.principal.id}"/>
+    Username: <span th:text="${#authentication.principal.username}"/>
+    Email: <span th:text="${#authentication.principal.email}"/>
+</div>
 
 </body>
 </html>

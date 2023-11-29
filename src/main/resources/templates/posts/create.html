@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<nav th:replace="partials/navbar :: navbar"></nav>
+
 <h1>Create you own Blog Post</h1>
 
 <form th:action="@{/post/create}" th:method="post" th:object="${post}">
@@ -27,3 +29,4 @@
 
 </body>
 </html>
+

@@ -1,21 +1,21 @@
-package com.codeup.codeupspringblog;
+package com.codeup.codeupspringblog.models;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false)
+    @Column(unique = true)
     private String email;
 
     @Column(nullable = false)
@@ -38,6 +38,22 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public User(Long id, String username, String email, String password, List<Post> posts) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.posts = posts;
+    }
+
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+        posts = copy.posts;
     }
 
     public Long getId() {

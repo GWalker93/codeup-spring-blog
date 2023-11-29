@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<nav th:replace="partials/navbar :: navbar"></nav>
+
 <h1>Edit Your Post</h1>
 
 <form th:method="post" th:action="@{/post/id/edit}" th:object="${post}">

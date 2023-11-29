@@ -1,9 +1,12 @@
-package com.codeup.codeupspringblog;
+package com.codeup.codeupspringblog.repository;
 
+import com.codeup.codeupspringblog.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository <User, Long> {
 
     User getUserById(long id);
+
+    User findByUsername(String username);
 
 }
